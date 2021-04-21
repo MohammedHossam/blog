@@ -24,7 +24,7 @@ class PostsController < ApplicationController
       end
     end
     if tags && tags.length()>0 && @post.save
-      HardWorker.perform_in(10.seconds.from_now, @post.id)
+      HardWorker.perform_in(24.hours.from_now, @post.id)
       render json: @post, status: :created, location: @post
     else
       render json: @post.errors, status: :unprocessable_entity

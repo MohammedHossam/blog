@@ -1,4 +1,4 @@
-class ChangeIdToBeBigint < ActiveRecord::Migration[6.1]
+class ChangeIdToBeBigint < ActiveRecord::Migration[6.0]
   def change
     change_column :comments, :user_id, :bigint
     change_column :comments, :post_id, :bigint
