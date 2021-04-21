@@ -1,13 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-To run this api just cd to the root directory and run the following command:
-docker-compose up
+a Blog Application, that uses a RESTful API to do the
+following:
 
-* End points examples:
-- localhost:3000/api/v1/login
-- localhost:3000/api/v1/registration
-- localhost:3000/api/v1/posts
-- localhost:3000/api/v1/posts/1/comments/2
-- localhost:3000/api/v1/posts/1/tags/2
+- Authenticate Users (Login, Signup)
+- Each user has the following fields (name, email, password, image)
+- User will log in using his email and password
+- All other api endpoints are not accessible without authentication
+- Use JWT for API authentication
+CRUD Posts
+- Each post has the following fields (title, body, author, tags, comments) ​ Please
+note that the author is a separate entity which is the user model.
+- Users/authors can only edit/delete their own posts
+- Users/authors can add comments on any post
+- Users/authors can only edit/delete their own comments
+- Users/authors can update the post tags
+- Each post must have at least one tag
+- All posts must be deleted after 24 hours of its creation date
+Using Ruby On Rails framework, mysql database, Sidekiq and redis (to schedule post deletion)
+
+dockerized at branch dockerize
+-
+
+Using a docker-compose file for the whole stack, you can run `docker-compose up` to run
+the whole stack without any extra commands or setup
+
